@@ -1,12 +1,16 @@
 import React from 'react';
-import './App.css';
-import Investors from './Investors'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import HomePage from 'routes/home/HomePage'
 
 function App() {
   return (
-    <div className="App">
-      <Investors />
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

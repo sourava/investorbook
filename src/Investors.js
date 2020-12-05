@@ -5,9 +5,21 @@ import { useQuery, gql } from '@apollo/client';
 
 const GET_INVESTORS = gql`
   query GetInvestors {
-      investor(limit: 100) {
+      investor_aggregate {
+        aggregate {
+          totalCount: count
+        }
+      }
+      investor(limit: 10, offset: 10) {
           id
           name
+          investments {
+            id
+            company {
+              id
+              name
+            }
+          }
       }
   }
 `;

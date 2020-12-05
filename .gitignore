@@ -1,3 +1,4 @@
 db/sampledata.sql
 node_modules
 build
+coverage

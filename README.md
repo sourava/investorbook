@@ -4,7 +4,7 @@
 
 You can view a live demo of the webclient at:
 
-https://investorbook.herokuapp.com/
+https://sourava.github.io/investorbook/
 
 ## Postgress Access
 
@@ -27,16 +27,5 @@ http://localhost:3001.
 If you prefer, you can instead run `yarn install` and `yarn start` in the
 `webclient/` subdirectory.
 
-# Submitting Your Solution
-
-To submit your solution, please deploy your app and send us a link to the live
-demo along with a zip file containing the source code.
-
-If you'd like to use Heroku for the deploy, you can run these commands to deploy
-the app in your Heroku account:
-
-```
-heroku git:remote -a {your_app_name}
-heroku buildpacks:set marks/create-react-app
-git push heroku master
-```
+# To deploy the latest changes
+yarn run deploy

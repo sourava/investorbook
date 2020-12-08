@@ -6,6 +6,8 @@ import logoPath from 'shared/assets/images/logo.png';
 const useStyles = makeStyles({
     root: {
         padding: '35px 42px',
+        maxWidth: '1080px',
+        margin: '0 auto',
     },
     logo: {
         height: '20px',

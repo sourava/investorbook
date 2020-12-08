@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { Tabs, Tab, TabPane } from 'shared/components/tabs/Tabs';
+import InvestorTable from './investorTable/InvestorTable';
 
 const HomePage = () => {
     const [currentTab, setCurrentTab] = useState(0);
@@ -15,7 +16,7 @@ const HomePage = () => {
                 <Tab label="Companies" />
             </Tabs>
             <TabPane value={currentTab} index={0}>
-                Item One
+                <InvestorTable />
             </TabPane>
             <TabPane value={currentTab} index={1}>
                 Item Two

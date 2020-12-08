@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/investorbook/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/investorbook/static/js/main.1efabddb.chunk.js",
-    "main.js.map": "/investorbook/static/js/main.1efabddb.chunk.js.map",
+    "main.js": "/investorbook/static/js/main.84467b8c.chunk.js",
+    "main.js.map": "/investorbook/static/js/main.84467b8c.chunk.js.map",
     "runtime-main.js": "/investorbook/static/js/runtime-main.5c740c23.js",
     "runtime-main.js.map": "/investorbook/static/js/runtime-main.5c740c23.js.map",
-    "static/js/2.c5380ba3.chunk.js": "/investorbook/static/js/2.c5380ba3.chunk.js",
-    "static/js/2.c5380ba3.chunk.js.map": "/investorbook/static/js/2.c5380ba3.chunk.js.map",
+    "static/js/2.1ab84181.chunk.js": "/investorbook/static/js/2.1ab84181.chunk.js",
+    "static/js/2.1ab84181.chunk.js.map": "/investorbook/static/js/2.1ab84181.chunk.js.map",
     "index.html": "/investorbook/index.html",
-    "precache-manifest.0271b387d80401f59e15038e0663bc19.js": "/investorbook/precache-manifest.0271b387d80401f59e15038e0663bc19.js",
+    "precache-manifest.e1a4a357870ac6ccac19aea2f2e1aecc.js": "/investorbook/precache-manifest.e1a4a357870ac6ccac19aea2f2e1aecc.js",
     "service-worker.js": "/investorbook/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/investorbook/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.c5380ba3.chunk.js.LICENSE.txt": "/investorbook/static/js/2.c5380ba3.chunk.js.LICENSE.txt"
+    "static/js/2.1ab84181.chunk.js.LICENSE.txt": "/investorbook/static/js/2.1ab84181.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5c740c23.js",
-    "static/js/2.c5380ba3.chunk.js",
+    "static/js/2.1ab84181.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.1efabddb.chunk.js"
+    "static/js/main.84467b8c.chunk.js"
   ]
 }

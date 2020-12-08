@@ -40,9 +40,10 @@ const InvestorForm = ({ type, investor, formAction }) => {
       formAction({ variables: { name: investorName, id: investor?.id } });
       setModalVisibility(false);
     } else if (type === InvestorFormType.DELETE) {
-      formAction({ variables: { id: investor?.id } });
-      setModalVisibility(false);
-      history.replace(routePaths.ROOT);
+      formAction({ variables: { id: investor?.id } }).then(() => {
+        setModalVisibility(false);
+        history.replace({ pathname: routePaths.ROOT, state: { reload: true } });
+      });
     }
   };
 

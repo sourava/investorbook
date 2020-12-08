@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -25,6 +25,7 @@ import { investorTableStyles } from "./styles";
 
 const InvestorTable = () => {
   const classes = investorTableStyles();
+  const location = useLocation();
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [currentPage, setCurrentPage] = useState(0);
   const [searchText, setSearchText] = useState("");
@@ -125,6 +126,11 @@ const InvestorTable = () => {
       </>
     );
   };
+
+  // @TODO: Fix this. this is a hack to reload the page after an investor is removed
+  if (location.state?.reload) {
+    window.location.reload();
+  }
 
   return (
     <div>

@@ -37,4 +37,7 @@ export const investorTableStyles = makeStyles({
     justifyContent: "center",
     alignItems: "center",
   },
+  tableRow: {
+    textDecoration: "none",
+  },
 });

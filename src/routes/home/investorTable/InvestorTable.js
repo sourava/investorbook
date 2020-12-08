@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useQuery, useMutation } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -52,6 +53,7 @@ const InvestorTable = () => {
   );
 
   const rows = data?.investor?.map((investor) => ({
+    id: investor.id,
     name: investor.name,
     investments: investor.investments
       .map((investment) => investment.company.name)
@@ -81,7 +83,12 @@ const InvestorTable = () => {
             </TableHead>
             <TableBody>
               {rows?.map((row) => (
-                <TableRow key={row.name}>
+                <TableRow
+                  className={classes.tableRow}
+                  key={row.name}
+                  component={Link}
+                  to={`/investor/${row.id}`}
+                >
                   <TableCell>
                     {
                       <div style={{ display: "flex", alignItems: "center" }}>

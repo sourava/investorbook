@@ -1,5 +1,6 @@
 const routePaths = {
-    ROOT: '/',
-}
+  ROOT: "/",
+  INVESTOR: "/investor/:id",
+};
 
 export default routePaths;

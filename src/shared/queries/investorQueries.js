@@ -1,5 +1,23 @@
 import { gql } from "@apollo/client";
 
+export const getInvestorById = gql`
+  query GetInvestor($id: Int!) {
+    investor_by_pk(id: $id) {
+      id
+      name
+      photo_thumbnail
+      investments {
+        id
+        amount
+        company {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
+
 export const getInvestorsQuery = gql`
   query GetInvestors($searchQuery: String!, $limit: Int!, $offset: Int!) {
     investor_aggregate {

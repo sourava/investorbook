@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
-export const getCompaniesQuery = (searchQuery = "", limit = 10) => gql`
-    query GetCompanies {
-        company(where: {name: {_ilike: "${searchQuery}%"}}, limit: ${limit}) {
+export const getCompaniesQuery = gql`
+    query GetCompanies($searchQuery: String!, $limit: Int!) {
+        company(where: {name: {_ilike: $searchQuery}}, limit: $limit) {
             id
             name
         }

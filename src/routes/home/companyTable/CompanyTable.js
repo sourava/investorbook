@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 
 import Paper from "@material-ui/core/Paper";
@@ -49,12 +49,14 @@ const CompanyTable = () => {
     }
   );
 
-  const rows = data?.company?.map((company) => ({
-    name: company.name,
-    investors: company.investments
-      .map((investment) => investment.investor.name)
-      .join(", "),
-  }));
+  const rows = useMemo(() => {
+    return data?.company?.map((company) => ({
+      name: company.name,
+      investors: company.investments
+        .map((investment) => investment.investor.name)
+        .join(", "),
+    }));
+  }, [data]);
 
   const handleChangePage = (event, newPage) => {
     setCurrentPage(newPage);

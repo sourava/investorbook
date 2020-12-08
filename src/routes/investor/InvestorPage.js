@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { useParams, Link } from "react-router-dom";
 
@@ -68,18 +68,22 @@ const InvestorPage = () => {
     awaitRefetchQueries: true,
   });
 
-  const rows = data?.investor_by_pk?.investments?.map((investment) => ({
-    id: investment.id,
-    amount: investment.amount,
-    company: investment.company,
-  }));
+  const rows = useMemo(() => {
+    return data?.investor_by_pk?.investments?.map((investment) => ({
+      id: investment.id,
+      amount: investment.amount,
+      company: investment.company,
+    }));
+  }, [data]);
 
-  const totalAmountInvested = data?.investor_by_pk?.investments?.reduce(
-    (accumulator, currentInvestment) => {
-      return accumulator + currentInvestment.amount;
-    },
-    0
-  );
+  const totalAmountInvested = useMemo(() => {
+    return data?.investor_by_pk?.investments?.reduce(
+      (accumulator, currentInvestment) => {
+        return accumulator + currentInvestment.amount;
+      },
+      0
+    );
+  }, [data]);
 
   if (
     loading ||

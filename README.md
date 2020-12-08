@@ -29,3 +29,7 @@ If you prefer, you can instead run `yarn install` and `yarn start` in the
 
 # To deploy the latest changes
 yarn run deploy
+
+# TODO
+- Add Typescript
+- Add precommit hook to lint the changes

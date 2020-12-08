@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useQuery, useMutation } from "@apollo/client";
 import { Link, useLocation } from "react-router-dom";
 
@@ -53,14 +53,16 @@ const InvestorTable = () => {
     }
   );
 
-  const rows = data?.investor?.map((investor) => ({
-    id: investor.id,
-    name: investor.name,
-    investments: investor.investments
-      .map((investment) => investment.company.name)
-      .join(", "),
-    avatar: investor.photo_thumbnail,
-  }));
+  const rows = useMemo(() => {
+    return data?.investor?.map((investor) => ({
+      id: investor.id,
+      name: investor.name,
+      investments: investor.investments
+        .map((investment) => investment.company.name)
+        .join(", "),
+      avatar: investor.photo_thumbnail,
+    }));
+  }, [data]);
 
   const handleChangePage = (event, newPage) => {
     setCurrentPage(newPage);

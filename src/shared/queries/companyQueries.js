@@ -1,5 +1,15 @@
 import { gql } from '@apollo/client';
 
+export const addCompanyQuery = gql`
+    mutation AddCompany($name: String!) {
+        insert_company(objects: [{name: $name}]) {
+            returning {
+                id
+            }
+        }
+    }
+`;
+
 export const getCompaniesWithInvestmentsQuery = gql`
     query GetCompanies($searchQuery: String!, $limit: Int!, $offset: Int!) {
         company_aggregate {

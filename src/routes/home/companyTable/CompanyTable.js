@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useQuery } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 
 import Paper from '@material-ui/core/Paper';
 import Table from '@material-ui/core/Table';
@@ -12,8 +12,9 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
+import CompanyForm from 'shared/components/companyForm/CompanyForm'
 import SearchBox from 'shared/components/searchBox/SearchBox'
-import { getCompaniesWithInvestmentsQuery } from 'shared/queries/companyQueries'
+import { getCompaniesWithInvestmentsQuery, addCompanyQuery } from 'shared/queries/companyQueries'
 import { investorTableStyles } from './styles'
 
 const CompanyTable = () => {
@@ -23,6 +24,10 @@ const CompanyTable = () => {
     const [searchText, setSearchText] = useState('');
     const { loading, data } = useQuery(getCompaniesWithInvestmentsQuery, {
         variables: { searchQuery: `${searchText}%`, limit: rowsPerPage, offset: rowsPerPage * currentPage },
+    });
+    const [addCompany, { loading: addCompanyRefetchLoading }] = useMutation(addCompanyQuery, {
+        refetchQueries: [{ query: getCompaniesWithInvestmentsQuery, variables: { searchQuery: `${searchText}%`, limit: rowsPerPage, offset: rowsPerPage * currentPage } }],
+        awaitRefetchQueries: true,
     });
 
     const rows = data?.company?.map((company) => ({
@@ -78,11 +83,12 @@ const CompanyTable = () => {
             <div className={classes.tableHeaderContainer}>
                 <div className={classes.tableHeader}>
                     <Typography className={classes.tableTitle}>Companies</Typography>
+                    <CompanyForm formAction={addCompany} />
                 </div>
                 <SearchBox searchText={searchText} setSearchText={setSearchText} />
             </div>
             {
-                loading ? <div className={classes.progressContainer}><CircularProgress /></div> : renderDataTable()
+                loading || addCompanyRefetchLoading ? <div className={classes.progressContainer}><CircularProgress /></div> : renderDataTable()
             }
 
         </div>
